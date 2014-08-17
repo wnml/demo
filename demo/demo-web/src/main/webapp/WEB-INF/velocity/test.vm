@@ -1,5 +1,0 @@
-<ul>
-	#foreach($item in $test)
-		<li>$item.msgRoute</li>
-	#end
-</ul>
