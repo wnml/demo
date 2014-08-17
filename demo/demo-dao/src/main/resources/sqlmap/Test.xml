@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jd.demo.dao.test.TestDao">
+	
+	<resultMap id="testResultMap" type="com.jd.demo.domain.Test" >
+		<id column="msg_id" property="msgID"/>
+		<result column="subsystem_id" property="subsystemID"/>
+		<result column="msg_route" property="msgRoute"/>
+		<result column="remark" property="remark"/>
+	</resultMap>
+	
+	<select id="excuteTest"  parameterType = "com.jd.demo.domain.Test" resultMap="testResultMap">
+	    select msg_id, subsystem_id, msg_route from tc_chat_log where msg_route = #{msgRoute}
+	</select>
+
+</mapper>
+
+
