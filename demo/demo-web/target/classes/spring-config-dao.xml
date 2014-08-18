@@ -13,12 +13,13 @@
     default-autowire="byName">
 	
 	<context:annotation-config/>
-	<!-- 数据库事务配置，控制回滚 -->
+	<!-- 数据库事务配置，控制回滚 
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	-->
 	<!-- classpath*:的出现是为了从多个jar文件中加载相同的文件.classpath:只能加载找到的第一个文件. -->
 	
 	<!--测试数据源-->
