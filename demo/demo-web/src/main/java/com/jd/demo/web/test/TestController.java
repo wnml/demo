@@ -35,6 +35,8 @@ public class TestController {
 		test.setMsgRoute("1");
 		mv.addObject("test", testService.myTest(test));
 		mv.setViewName("test");
+		String temp = null;
+		temp.split("_");
 		return mv;
 	}
 
