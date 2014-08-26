@@ -1,2 +1,2 @@
-#set($topNavAreaNotShow=true)
+#set($notShowTopNavArea=true)
 <h1>服务器发生异常，请稍后再试！！<h1>

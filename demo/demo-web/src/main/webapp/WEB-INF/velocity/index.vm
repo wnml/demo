@@ -1,0 +1,257 @@
+<style type="text/css"> 
+	
+	.navAdverArea{border:1px solid yellow;margin-top:0px;margin-left:0px;height:500px}
+    .navAdverArea .leftNavArea{width:212px;positon:relative;float:left}
+	.navAdverArea .leftNav{margin:0;padding:0;}
+	.navAdverArea .leftNav .levelOneNav{list-style-type:none;line-height:26px; border:1px solid #E5D1A1; text-align:left; margin-top:-1px; width:200px; background:#FAFAFA; z-index:1;font-size:14px;font-weight:400;color:#666;padding-left:10px}
+	.navAdverArea .leftNav a{text-decoration:none; color:#666;} 
+	.navAdverArea .leftNav a:hover{text-decoration:underline; color:#FF6600;} 
+	.navAdverArea .leftNav .levelTwoNav{position:absolute; width:450px; background:#fff; z-index:2; display:none;border:1px solid #FAFAFA;padding:5px 0px 5px 0px} 
+	.navAdverArea .leftNav .levelTwo{width:60px;padding:3px;text-align:right;color:#E4393C;font-weight:700;font-size:10px}
+	.navAdverArea .leftNav .levelThree{float:left;border-left:1px solid red;padding:2px 10px 2px 10px;font-size:10px}
+	.navAdverArea .adverArea{float:left;border:1px solid blue;width:760px;height:500px}
+	.navAdverArea .adverArea1{float:left;border:1px solid blue;width:290px;height:500px}
+	.navAdverArea .adverArea .carousel{height:330px;width:750px;margin-top:5px;margin-left:5px;overflow:hidden}
+	.navAdverArea .adverArea .pic-show{height:285px;position:relative;overflow:hidden;}
+	.navAdverArea .adverArea .pic{display:inline-block;*display:inline;*zoom:1;float:left;height:285px;}
+	.navAdverArea .adverArea .pic img{height:285px;width:750px;}
+	.navAdverArea .adverArea .pic-num{background:rgba(0,0,0,.5);height:25px;width:100%;text-align:center;}
+	.navAdverArea .adverArea .pic-num span{background:#ececec;border-radius:50%;color:#222;display:inline-block;*display:inline;*zoom:1;font-size:12px;height:15px;margin:4px 4px;width:15px;}
+	.navAdverArea .adverArea .pic-num span.on{background:red;color:#fff;}
+	
+	.floorArea{border:1px solid red;margin-top:0px;margin-left:0px;height:390px;margin-top:5px}
+	.floorArea .floorTop{height:50px;border-bottom:3px solid red;}
+	.floorArea .floorTop .topTitle{float:left;height:50px;width:205px;text-align:center;line-height:50px;}
+	.floorArea .floorTop .topTitle1{float:left;height:50px;width:168px;text-align:center;line-height:50px;cursor:pointer}
+	.floorArea .floorTop .topTitle1:hover{background-color:red}
+	.floorArea .floorLeft{float:left;height:338px;width:205px;border-right:1px solid red;}
+	.floorArea .floorMiddle{float:left;height:338px;width:845px}
+	.floorArea .floorMiddle .itemWrap{float:left;height:168px;width:168px;border-bottom:1px solid red;border-right:1px solid red}
+	.floorArea .floorMiddle .p-img{height:100px;text-align:center}
+	.floorArea .floorMiddle .p-name{overflow:hidden;height:30px;text-align:left;word-break:break-all;word-wrap:break-word;line-height:18px;font-size:13px;padding:6px}
+	.floorArea .floorMiddle .p-price{height:22px;font-size: 15px;font-family: Verdana;color: #E4393C;text-align:left;margin-top:2px;padding-left:6px}
+	.floorArea .floorMiddle a{text-decoration:none;color:#666;}
+	.floorArea .floorRight{float:left;height:338px;width:212px}
+	
+</style>
+
+<!--左侧导航和广告区start-->
+<div class="navAdverArea">
+
+	<!--首页左侧导航栏start-->
+	<div class="leftNavArea">
+		<ul class="leftNav"> 
+			#foreach($item1 in $sortList)
+				<li class="levelOneNav">
+					<a href="#">$!item1.sortName</a>
+				</li>
+				<div class="levelTwoNav">
+					<table frame="hsides" rules="rows">
+						#foreach($item2 in $item1.childSortList)
+							<tr>
+								<td><div class="levelTwo"><a href="#">$!item2.sortName</a></div></td>
+								<td>
+									#foreach($item3 in $item2.childSortList)
+										<div class="levelThree"><a href="#">$!item3.sortName</a></div>
+									#end
+								</td>
+							</tr>
+						#end
+					</table>
+				</div>
+			#end
+		</ul>
+	</div>
+	<!--首页左侧导航栏end-->
+	
+	<!--轮播图模块start-->
+	<div class="adverArea"> 
+		<div class="carousel">
+		  <div class="pic-show">
+		    <div class="pic">
+		      <img src="http://img12.360buyimg.com/da/jfs/t226/58/1170853302/58951/ebb74e77/53f717a7N5a656662.jpg" alt=""/>
+		    </div>
+		    <div class="pic">
+		      <img src="http://img11.360buyimg.com/da/jfs/t199/353/1211788524/53434/9da8dfb7/53a7be8aNd5285df1.jpg" alt=""/>
+		    </div>
+		    <div class="pic">
+		      <img src="http://img14.360buyimg.com/da/jfs/t262/213/1191826803/60959/b24a4900/53f6e16fN8bd24db0.jpg" alt=""/>
+		    </div>
+		  </div>
+		  <div class="pic-num"></div>
+		</div>
+	</div>
+	<!--轮播图模块end-->
+	
+	<!--右侧广告区-->
+	<div class="adverArea1"> 
+		
+	</div>
+</div>
+<!--左侧导航和广告区end-->
+
+
+<!--楼层一start-->	
+<div id="firstFloor" class="floorArea"> 
+	<div class="floorTop">
+		<div class="topTitle">家电通讯</div>
+		<div class="topTitle1 firstShow" sortId="1003">特价商品</div>
+		<div class="topTitle1" sortId="1004">大家电</div>
+		<div class="topTitle1" sortId="1005">小家电</div>
+		<div class="topTitle1" sortId="1006">手机通讯</div>
+		<div class="topTitle1" sortId="1007">汽车五金</div>
+		<div class="topTitle">其他</div>
+	</div>
+	<div class="floorLeft">
+	</div>
+	<div class="floorMiddle">
+	</div>
+	<div class="floorRight"></div>
+</div>
+<!--楼层一end-->
+
+<!--楼层二start-->		
+<div id="secondFloor" class="floorArea"> 
+	<div class="floorTop">
+		<div class="topTitle">家电通讯1</div>
+		<div class="topTitle1 firstShow" sortId="1008">特价商品11</div>
+		<div class="topTitle1" sortId="1009">大家电1</div>
+		<div class="topTitle1" sortId="1010">小家电1</div>
+		<div class="topTitle1" sortId="1011">手机通讯1</div>
+		<div class="topTitle1" sortId="1012">汽车五金1</div>
+		<div class="topTitle">其他1</div>
+	</div>
+	<div class="floorLeft">
+		
+	</div>
+	<div class="floorMiddle">
+	</div>
+	<div class="floorRight"></div>
+</div>
+<!--楼层二end-->	
+
+<script type="text/javascript"> 
+	$(function(){ 
+		//左侧导航栏绑定鼠标事件，鼠标停留时在右侧展示二三级分类
+		$(".leftNav li").each(function(index){ 
+			$(this).mouseover(function(){ 
+				var obj=$(this).offset(); 
+				var xobj=obj.left+190+"px"; 
+				var yobj=obj.top-20+"px"; 
+				$(this).css({"width":"190px","z-index":"9999","border-right":"none","background":"#fff"}); 
+			//	$(".leftNav > .levelTwoNav:eq("+index+")").css({"left":"250px","top":"160px"}).show(); 
+				$(".leftNav > .levelTwoNav:eq("+index+")").css({"left":xobj,"top":yobj}).show(); 
+			}).mouseout(function(){ 
+				$(".leftNav > .levelTwoNav").hide(); 
+				$(this).css({"width":"200px","z-index":"1","border":"1px solid #E5D1A1","background":"#FAFAFA"}) 
+			}) 
+		}) 
+
+		$(".levelTwoNav").each(function(){ 
+			$(this).mouseover(function(){ 
+				$(this).prev("li").css({"width":"190px","z-index":"9999","border-right":"none","background":"#fff"}) 
+				$(this).show(); 
+			}).mouseout(function(){ 
+				$(this).hide(); 
+				$(this).prev("li").css({"width":"200px","z-index":"1","border":"1px solid #E5D1A1","background":"#FAFAFA"}); 
+			}) 
+		}) 
+		
+		//为每个楼层的上部导航栏绑定鼠标经过事件，鼠标停留时，显示在下面floorMiddle内动态展示对应的商品列表
+		$(".topTitle1").each(function(){
+			$(this).mouseover(function(){
+				var parent = $(this).parent().parent();
+				var sortId = $(this).attr("sortId");
+				var params = {'sortId':sortId,'startPos':0,'itemsPerPage':10};
+				$.fillFloorMiddle(params, parent);
+			})		
+		})
+        
+        //页面开始加载的时候首先显示每个楼层上部导航的第一个品类对应的商品列表
+        $(".firstShow").each(function(){
+        	$(this).trigger("mouseover"); 
+        })
+        
+        //启动首页轮播图
+        var _picw = 0;
+        var picNum = 0;
+        $.pictureRotate();
+        //为轮播图下的数字导航绑定鼠标事件，当鼠标放在上面时，显示指定的图片
+        $(".adverArea span").each(function(){
+        	$(this).mouseover(function(){
+        		picNum = $(this).html()-1;
+        		$.pictureShow(picNum);
+        	})
+        })
+        
+	}) 
+	
+	
+	
+	//启动首页轮播图
+	$.pictureRotate = function(){
+		
+		var picNum=0;
+	  	_picw=$(".adverArea .pic").outerWidth();
+	  	var _picn=$(".adverArea .pic").length;
+	  	$(".adverArea .pic-show").css("width",_picw*_picn);
+	  	if(_picn>1){
+	    	for(var i=1;i<=_picn;i++){
+		      	var _span="<span>"+i+"</span>";
+		      	$(_span).appendTo(".adverArea .pic-num");
+	    	}
+	    	$(".adverArea .pic-num span").eq(0).addClass("on");
+	  	}
+	  	setInterval(function(){
+	    	$.pictureShow(picNum);
+	    	picNum++;
+	    	if(picNum==_picn){picNum=0}
+	  	},3000);
+	
+	}
+	//首页轮播模块动画方式展示相应的图片
+	$.pictureShow = function(picNum){
+		var _picL=-picNum*_picw;
+	    $(".adverArea .pic-show").animate({"left":_picL},500);
+	    $(".adverArea .pic-num span").removeClass("on").eq(picNum).addClass("on");
+	}
+	
+	//用ajax的方式，从后台获取对应楼层相应分类的商品，并在.floorMiddle中展示
+	$.fillFloorMiddle = function(params, parent){
+		$.ajax({  
+                url:"floorProductList",  
+                type:'post',  
+                data:params,  
+                dataType:'json',  
+                success:function(data,status){  
+                    if(status == "success"){  
+                        var content = ""; 
+                        for(var i=0;i<data.length;i++){  
+                        	content += 
+							 	"<div class='itemWrap'>" +
+									"<div class='p-img'>" +
+										"<a target='_blank' href='" + data[i].detailUrl + "' title='" + data[i].name + "'>" +
+											"<img height='100' width='100' alt='" + data[i].name + "'src='" + data[i].imageUrl +"'>" +
+										"</a>" +
+									"</div>" +
+									"<div class='p-name'>" +
+										"<a target='_blank' href='" + data[i].detailUrl +"' title='" + data[i].name + "'>" +
+											data[i].name +
+										"</a>" +
+									"</div>" +
+									"<div class='p-price'>" +
+										"<span>￥</span>" +
+										data[i].basePrice +
+									"</div>" +
+								"</div>";
+                        }  
+                        parent.children(".floorMiddle").html(content);
+                    }  
+                },  
+                error:function(xhr,textStatus,errorThrown){  
+                }  
+            }); 
+	}
+	
+	
+</script> 

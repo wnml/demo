@@ -1,0 +1,40 @@
+<style type="text/css"> 
+	.leftNavArea{width:212px;positon:relative}
+	.leftNavArea .leftNav{margin:0;padding:0;}
+	.leftNavArea .leftNav .levelOneNav{list-style-type:none;line-height:26px; border:1px solid #E5D1A1; text-align:left; margin-top:-1px; width:200px; background:#FAFAFA; z-index:1;font-size:14px;font-weight:400;color:#666;padding-left:10px}
+	.leftNavArea .leftNav a{text-decoration:none; color:#666;} 
+	.leftNavArea .leftNav a:hover{text-decoration:underline; color:#FF6600;} 
+	.leftNavArea .leftNav .levelTwoNav{position:absolute; width:450px; background:#fff; z-index:2; display:none;border:1px solid #FAFAFA;padding:5px 10px 5px 10px} 
+	.leftNavArea .leftNav .levelTwo{width:80px;padding:3px;text-align:right}
+	.leftNavArea .leftNav .levelThree{float:left;border-left:1px solid red;margin-top:5px;padding:2px 10px 2px 10px}
+</style>
+
+
+
+<script type="text/javascript"> 
+	$(function(){ 
+		$(".leftNav li").each(function(index){ 
+			$(this).mouseover(function(){ 
+				var obj=$(this).offset(); 
+				var xobj=obj.left+190+"px"; 
+				var yobj=obj.top-20+"px"; 
+				$(this).css({"width":"190px","z-index":"9999","border-right":"none","background":"#fff"}); 
+			//	$(".leftNav > .levelTwoNav:eq("+index+")").css({"left":"250px","top":"160px"}).show(); 
+				$(".leftNav > .levelTwoNav:eq("+index+")").css({"left":xobj,"top":yobj}).show(); 
+			}).mouseout(function(){ 
+				$(".leftNav > .levelTwoNav").hide(); 
+				$(this).css({"width":"200px","z-index":"1","border":"1px solid #E5D1A1","background":"#FAFAFA"}) 
+			}) 
+		}) 
+
+		$(".levelTwoNav").each(function(){ 
+			$(this).mouseover(function(){ 
+				$(this).prev("li").css({"width":"190px","z-index":"9999","border-right":"none","background":"#fff"}) 
+				$(this).show(); 
+			}).mouseout(function(){ 
+				$(this).hide(); 
+				$(this).prev("li").css({"width":"200px","z-index":"1","border":"1px solid #E5D1A1","background":"#FAFAFA"}); 
+			}) 
+		}) 
+	}) 
+</script> 

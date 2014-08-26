@@ -1,0 +1,85 @@
+<style type="text/css"> 
+	.breadCrumbArea{height:30px;border:1px solid #E5D1A1}
+	.leftArea{float:left;height:800px;width:253px;border:1px solid #E5D1A1}
+	.rightArea{float:left;height:1100px;width:1010px;border:1px solid #E5D1A1}
+	.rightArea .recommendArea{width:100%;height:50px;border:1px solid #E5D1A1}
+	.rightArea .filterArea{width:100%;height:50px;border:1px solid #E5D1A1}
+	.rightArea .stockArea{width:100%;height:50px;border:1px solid #E5D1A1} 
+	.rightArea .showArea{width:100%;height:auto;border:1px solid #E5D1A1} 
+	.rightArea .pagenationArea{height:50px;border:1px solid #E5D1A1}
+	
+	.showArea .itemWrap{float:left;height:350px;width:251px;border-bottom:1px solid red;border-right:1px solid red}
+	.showArea .p-img{height:200px;text-align:center}
+	.showArea .p-name{overflow:hidden;height:30px;text-align:left;word-break:break-all;word-wrap:break-word;line-height:18px;font-size:13px;padding:6px}
+	.showArea .p-price{height:22px;font-size: 15px;font-family: Verdana;color: #E4393C;text-align:left;margin-top:2px;padding-left:6px}
+	.showArea a{text-decoration:none;color:#666;}
+</style>
+
+
+<div class="breadCrumbArea"></div>
+<div class="leftArea">
+	<div class="leftNav">
+	</div>
+	<div class="sellWell">
+	</div>
+</div>
+<div class="rightArea">
+	<div class="recommendArea"></div>
+	<div class="filterArea"></div>
+	<div class="stockArea"></div>
+	<div class="showArea">
+		<div class="productShow">
+			
+		</div>
+	</div>
+	<div class="pagenationArea">
+		<div id="pagenation" class="pagenation">
+			
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript" src="/js/utils/pagenation.js"></script>
+<script type="text/javascript"> 
+	$(function(){
+		//页面初始化的时候首先显示第一页，所以传入的currentPage参数为1
+		setPage($("#pagenation"), $totalPages, 1, $.getProductList, $proQuery );
+	}) 
+	
+	 $.getProductList = function(params){
+		$.ajax({  
+             url:"searchProductList",  
+             type:'post',  
+             data:params,  
+             dataType:'json',  
+             success:function(data,status){  
+                 if(status == "success"){  
+                     var content = ""; 
+                     for(var i=0;i<data.length;i++){  
+                     	content += 
+							 	"<div class='itemWrap'>" +
+									"<div class='p-img'>" +
+										"<a target='_blank' href='" + data[i].detailUrl + "' title='" + data[i].name + "'>" +
+											"<img height='200' width='200' alt='" + data[i].name + "'src='" + data[i].imageUrl +"'>" +
+										"</a>" +
+									"</div>" +
+									"<div class='p-name'>" +
+										"<a target='_blank' href='" + data[i].detailUrl +"' title='" + data[i].name + "'>" +
+											data[i].name +
+										"</a>" +
+									"</div>" +
+									"<div class='p-price'>" +
+										"<span>￥</span>" +
+										data[i].basePrice +
+									"</div>" +
+								"</div>";
+                     }  
+                     $(".productShow").html(content);
+                 }  
+             },  
+             error:function(xhr,textStatus,errorThrown){  
+             }  
+         }); 
+	};
+</script> 
