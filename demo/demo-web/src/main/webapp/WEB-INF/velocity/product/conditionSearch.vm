@@ -7,11 +7,20 @@
 	.rightArea .stockArea{width:100%;height:50px;border:1px solid #E5D1A1} 
 	.rightArea .showArea{width:100%;height:auto;border:1px solid #E5D1A1} 
 	.rightArea .pagenationArea{height:50px;border:1px solid #E5D1A1}
-	
-	.showArea .itemWrap{float:left;height:350px;width:251px;border-bottom:1px solid red;border-right:1px solid red}
+	.productShow{height:auto;padding-bottom:5px}
+	.showArea .itemWrap{float:left;height:350px;width:251px;font-size:12px}
 	.showArea .p-img{height:200px;text-align:center}
 	.showArea .p-name{overflow:hidden;height:30px;text-align:left;word-break:break-all;word-wrap:break-word;line-height:18px;font-size:13px;padding:6px}
-	.showArea .p-price{height:22px;font-size: 15px;font-family: Verdana;color: #E4393C;text-align:left;margin-top:2px;padding-left:6px}
+	.showArea .p-price{height:22px;font-size: 15px;font-family: Verdana;font-weight:900;color: #E4393C;text-align:left;margin-top:2px;padding-left:6px}
+	.showArea .p-extra{margin-top:5px;margin-left:10px;padding:2px 0;height:16px;line-height:16px;overflow:hidden;font-family:verdana;}
+	.showArea .p-extra a{color:#005aa0}
+	.showArea .p-stock{color:#333;margin-left:10px}
+	.showArea .p-add{height:24px;margin-top:10px;margin-left:10px}
+	.showArea .a-buy, .a-attention, .a-compare{float:left;height:19px;padding:0px 9px;border:1px solid #ddd;border-radius:2px;margin:0 4px 0 0;background:#F7F7F7;line-height:18px;line-height:19px\9;text-align:center;text-decoration:none;cursor:pointer;color:#333;
+		background:-moz-linear-gradient(top,#f7f7f7,#f2f2f2);
+		background:-webkit-gradient(linear,0 0,0 100%,from(#f7f7f7),to(#f2f2f2));
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#f7f7f7", endColorstr="#f2f2f2");
+		-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr="#f7f7f7", endColorstr="#f2f2f2")";}
 	.showArea a{text-decoration:none;color:#666;}
 </style>
 
@@ -73,6 +82,17 @@
 										"<span>￥</span>" +
 										data[i].basePrice +
 									"</div>" +
+									"<div class='p-extra'>" +
+										"<a href='#'>已有2333人评价</a>" +
+									"</div>" +
+									"<div class='p-extra'>" +
+										"<span>湖北有货</span>" +
+									"</div>" +
+									"<div class='p-add'>" +
+										"<a href='#' class='a-buy'>加入购物车</a>" +
+										"<a href='#' class='a-attention'>关注</a>" +
+										"<a href='#' class='a-compare'>对比</a>" +
+									"</div>" +
 								"</div>";
                      }  
                      $(".productShow").html(content);
@@ -81,5 +101,6 @@
              error:function(xhr,textStatus,errorThrown){  
              }  
          }); 
+         $('body').scrollTop(300);
 	};
 </script> 
